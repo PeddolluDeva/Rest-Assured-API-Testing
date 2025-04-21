@@ -1,0 +1,64 @@
+
+
+package REST_API_CRUD_Operations;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.repository.CrudRepository;
+
+import REST_API_CRUD_Entity.stud;
+//import REST_API_CRUD_Repository.StudentRepository;
+
+@SpringBootApplication
+public class CrudSpringBootDbApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(CrudSpringBootDbApplication.class, args);        
+        System.out.println("This is a Spring Boot Project....");
+    }
+
+    @Bean
+    public CommandLineRunner demo(CrudRepository repository) {
+        return (args) -> {
+            // Save some sample data
+            repository.save(new stud("John Doe", "B.Tech", 85.5f));
+            repository.save(new stud("Jane Smith", "MCA", 90.0f));
+
+            System.out.println("Data has been inserted.");
+        };
+    }
+}
+
+
+//package REST_API_CRUD_Operations;
+//
+//import org.springframework.boot.CommandLineRunner;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.data.repository.CrudRepository;
+//
+//import REST_API_CRUD_Entity.stud;
+//
+//@SpringBootApplication
+//public class CrudSpringBootDbApplication {
+//
+//	public static void main(String[] args) {
+//		SpringApplication.run(CrudSpringBootDbApplication.class, args);
+//		
+//		System.out.println(" These is Spring Boot Project....  ");
+//	}
+//		  @Bean
+//		    public CommandLineRunner demo(CrudRepository repository) {
+//		        return (args) -> {
+//		            // Save some sample data
+//		            repository.save(new stud("John Doe", "B.Tech", 85.5f));
+//		            repository.save(new stud("Jane Smith", "MCA", 90.0f));
+//
+//		            System.out.println("Data has been inserted.");
+//		        };
+//		
+//	}
+//
+//}

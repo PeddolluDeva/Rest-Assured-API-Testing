@@ -1,0 +1,5 @@
+package REST_API_CRUD_StudentRepository;
+
+public class StudentRepository {
+
+}

@@ -1,0 +1,53 @@
+package REST_API_CRUD_Operations;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+	@GetMapping()
+	public String getuser() {
+		return "Http get request Mapping for these user... ";
+	}
+	@GetMapping()
+	public String getUsers(@RequestParam(value="page") int page,@RequestParam(value="limit") int limit)
+	{
+	return "http GET request was sent for page:"+page+"and limit is:"+limit;
+	}
+
+	/*
+	 * 
+	 * @GetMapping() 
+	 * public String getuser(@RequestParam(value="page") int page,@RequestParam(value="limit")int limit)
+	 * {
+	 *  return "Http get request Mapping for these user"+page+" Size of these Page is :- "+limit; 
+	 * }
+	 * 
+	 */
+	@GetMapping(path="/{userID}")
+	 public String getUser(@PathVariable String userID)
+    { 
+		return "http GET request was sent for userid: "+userID;
+	}
+	@PostMapping()
+	public String createuser() {
+		return "Http Post request Mapping for these user... ";
+	}
+	@PutMapping()
+	public String updateuser() {
+		return "Http Put request Mapping for these user... ";
+	}
+	@DeleteMapping()
+	public String deletruser() {
+		return "Http Delete request Mapping for these user... ";
+	}
+}
